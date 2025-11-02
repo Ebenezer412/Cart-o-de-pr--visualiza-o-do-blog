@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Preview Card | Frontend Mentor</title>
+    <!-- Carrega a fonte Figtree (Weights 500 e 800) -->
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;800&display=swap" rel="stylesheet">
+    
+    <!-- Incluindo Tailwind CSS e configurando as cores personalizadas do Style Guide -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // Configurando a fonte Figtree
+                    fontFamily: {
+                        figtree: ['Figtree', 'sans-serif'],
+                    },
+                    // Definindo as cores exatas do Style Guide (HSL convertido)
+                    colors: {
+                        'fm-yellow': 'hsl(47, 88%, 63%)',
+                        'fm-gray-500': 'hsl(0, 0%, 42%)',
+                        'fm-gray-950': 'hsl(0, 0%, 7%)',
+                    },
+                    // Definindo um estilo de sombra personalizado para o cartão (shadow-fm-lg)
+                    boxShadow: {
+                        'fm-lg': '8px 8px 0px 0px rgba(0, 0, 0, 1)',
+                        // Sombra para o estado de hover, simulando o deslocamento
+                        'fm-lg-hover': '15px 15px 0px 0px rgba(0, 0, 0, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Define a fonte Figtree para todo o corpo e a cor de fundo cinza 950 */
+        body {
+            font-family: 'Figtree', sans-serif;
+            background-color: hsl(0, 0%, 7%);
+        }
+        /* Aplica a transição para a sombra do cartão */
+        .card-transition {
+            transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+        /* Estilo para o estado de hover do cartão (desloca a sombra para simular o efeito) */
+        .blog-card:hover {
+            box-shadow: 15px 15px 0px 0px rgba(0, 0, 0, 1);
+        }
+        /* Estilo para o hover/focus no link do título */
+        .title-link:hover, .title-link:focus {
+            color: hsl(47, 88%, 63%); /* Cor Amarela no hover */
+        }
+    </style>
+</head>
+
+<!-- O corpo centraliza o conteúdo na tela -->
+<body class="min-h-screen flex items-center justify-center p-6">
+    
+    <!-- Componente principal do Card -->
+    <!-- Aplicando a borda, fundo branco, sombra personalizada e efeito de transição -->
+    <main class="blog-card bg-white max-w-sm rounded-3xl p-6 border-2 border-fm-gray-950 shadow-fm-lg card-transition hover:shadow-fm-lg-hover">
+        
+        <!-- Ilustração do Artigo (Placeholder SVG) -->
+        <div class="mb-6">
+            <!-- 
+                A imagem original seria "illustration-article.svg". 
+                Usando um placeholder com a mesma proporção.
+            -->
+            <img 
+                src="assets/images/illustration-article.svg" 
+                alt="Ilustração de um artigo com código"
+                class="w-full h-auto rounded-xl"
+            >
+        </div>
+
+        <!-- Conteúdo do Card -->
+        <div class="space-y-4">
+            
+            <!-- Tag "Learning" -->
+            <span class="inline-block bg-fm-yellow text-fm-gray-950 font-extrabold text-xs py-1 px-3 rounded-md font-figtree">
+                Learning
+            </span>
+
+            <!-- Data de Publicação -->
+            <p class="text-sm text-fm-gray-950 font-medium">
+                Publicado em 02 de NOV 2025
+            </p>
+
+            <!-- Título do Artigo (Elemento Interativo - Link) -->
+            <!-- O estado de hover/focus é controlado pelas classes 'title-link' na tag style -->
+            <h2 class="text-2xl font-extrabold text-fm-gray-950">
+                <a href="#" class="title-link focus:outline-none focus:ring-2 focus:ring-fm-yellow rounded-sm">
+                    HTML & CSS foundations
+                </a>
+            </h2>
+
+            <!-- Descrição (Body Copy) -->
+            <p class="text-base text-fm-gray-500 font-medium">
+                Essas linguagens são a espinha dorsal de todo site, definindo estrutura, conteúdo e apresentação.
+            </p>
+
+            <!-- Seção do Autor -->
+            <div class="flex items-center pt-2">
+                <!-- Avatar do Autor (Placeholder) -->
+                <img 
+                    src="https://placehold.co/32x32/111111/FFFFFF?text=E" 
+                    alt="Avatar do Greg Hooper"
+                    class="w-8 h-8 rounded-full mr-3"
+                >
+                <!-- Nome do Autor -->
+                <span class="text-sm font-extrabold text-fm-gray-950">
+                    Ebenezer VC
+                </span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Atribuição/Rodapé -->
+    <footer class="absolute bottom-0 w-full text-center text-xs p-2 text-white">
+        Desafio de Codificação por <a class="text-fm-yellow hover:text-blue-400" href="assets/images/favicon-32x32.png" target="_blank">Frontend Mentor</a>. 
+    </footer>
+</body>
+</html>
